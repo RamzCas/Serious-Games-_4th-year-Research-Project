@@ -127,6 +127,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 381303708030032940, guid: 42ccc94f67c532e4cbddff812ecc9ae1, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1168794955}
+    - target: {fileID: 3864863002099458647, guid: 42ccc94f67c532e4cbddff812ecc9ae1, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4094319061910387600, guid: 42ccc94f67c532e4cbddff812ecc9ae1, type: 3}
       propertyPath: m_Name
       value: PlayerContainer
@@ -171,11 +179,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7433549029023375709, guid: 42ccc94f67c532e4cbddff812ecc9ae1, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42ccc94f67c532e4cbddff812ecc9ae1, type: 3}
+--- !u!50 &1168794955 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3864863002099458647, guid: 42ccc94f67c532e4cbddff812ecc9ae1, type: 3}
+  m_PrefabInstance: {fileID: 1087940683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
