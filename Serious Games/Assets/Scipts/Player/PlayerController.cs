@@ -118,15 +118,16 @@ public class PlayerController : MonoBehaviour
 
         if(SprintImage.fillAmount <= 0) 
         {
-            CanSprint = false;
-            IsSprinting = false;
-            CurrentSpeed = Speed;
             StartCoroutine(ReSetSpeed());
         }
     }
 
     public IEnumerator ReSetSpeed() 
     {
+        yield return new WaitForSeconds(0f);
+        CanSprint = false;
+        IsSprinting = false;
+        CurrentSpeed = Speed;
         yield return new WaitForSeconds(2f);
         SprintImage.fillAmount = 1;
         CanSprint = true;
