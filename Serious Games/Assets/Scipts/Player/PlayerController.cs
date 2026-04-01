@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public GameObject SprintUI;
 
     [Header("Interaction")]
+    public bool CanInteract;
     public float InteractRange;
     public float RayDistance;
     public Transform Player;
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     public void Ray()
     {
-
+     
     }
 
     public void Interact(InputAction.CallbackContext context) 
