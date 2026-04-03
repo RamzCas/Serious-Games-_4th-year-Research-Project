@@ -77,23 +77,21 @@ public class PlayerController : MonoBehaviour
         /*RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.up * RayDistance);
         Debug.DrawRay(transform.position, Vector2.up * RayDistance, Color.yellow);*/
 
-        /*Ray2D ray2D = new Ray2D(Player.position, Player.up);
-        RaycastHit2D hit2D;
+        Ray ray = new Ray(Player.position, Player.up);
+        RaycastHit hit;
 
         Debug.DrawRay(Player.position, Player.up * RayDistance, Color.yellow);
 
-         if (Physics2D.Raycast(ray2D,out hit2D, RayDistance)) 
-         {
-
-         }*/
-
-        RaycastHit2D hit2D = Physics2D.Raycast(Player.position, Player.up, RayDistance);
-        Debug.DrawRay(Player.position, Player.up * RayDistance, Color.yellow);
-
-       /* if (hit2D.collider.CompareTag("B")) 
+        if(Physics.Raycast(ray, out hit, RayDistance)) 
         {
-            Debug.Log("Building");
-        }*/
+           Debug.Log(hit.collider.gameObject.name);
+        }
+        
+
+       /* RaycastHit2D hit2D = Physics2D.Raycast(Player.position, Player.up, RayDistance);
+        Debug.DrawRay(Player.position, Player.up * RayDistance, Color.yellow);*/
+
+        
 
     }
 
