@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,29 +46,37 @@ public class Diolog_Test : MonoBehaviour
         {
             //Debug.Log("Interated with ncp: Start dilog");
             InConvo = true;
-            PlayerController.CanMove = false;
-            Canvas.SetActive(true); 
+            
         }
 
-        else 
-        {
-            InConvo = false;
-            PlayerController.CanMove = true;
-            Canvas.SetActive(false);
-        }
+        
 
         if(InConvo) 
         {
             DialogBoards[CurrentNumberOfDialog].gameObject.SetActive(true);
+            PlayerController.CanMove = false;
+            Canvas.SetActive(true);
         }
-        
-        if(CurrentNumberOfDialog >= NumberOfDialog - 1f) 
+
+        if (!InConvo) 
         {
-            Debug.Log("EndConvo");
-            InConvo = false;
             PlayerController.CanMove = true;
             Canvas.SetActive(false);
             CurrentNumberOfDialog = 0;
+        }
+
+
+        if(CurrentNumberOfDialog >= NumberOfDialog - 1f) 
+        {
+            Debug.Log("EndConvo");
+            InteractPt.SetActive(true);
+            InConvo = false;
+
+           foreach( GameObject dialog in DialogBoards) 
+            {
+                dialog.SetActive(false);
+            }
+
         }
     }
 
