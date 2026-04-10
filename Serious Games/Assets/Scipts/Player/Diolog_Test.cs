@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -7,7 +8,9 @@ public class Diolog_Test : MonoBehaviour
 {
     [Header("Components")]
     public GameObject InteractPt;
-    public GameObject[] DialogBoards;//Some reasone we need to add an etra point to work 
+    //public GameObject[] DialogBoards;//Some reasone we need to add an etra point to work 
+    public string[] DialogLines;
+    public TextMeshProUGUI TextMeshPro;
     public GameObject Canvas;
 
     [Header("Array")]
@@ -25,7 +28,8 @@ public class Diolog_Test : MonoBehaviour
     private void Awake()
     {
         Controls = new PlayerControler();
-        NumberOfDialog = DialogBoards.Length;
+        //NumberOfDialog = DialogBoards.Length;
+        NumberOfDialog = DialogLines.Length;
     }
 
     private void OnEnable()
@@ -50,12 +54,16 @@ public class Diolog_Test : MonoBehaviour
         }
 
         
-
+        //chaning the dialog system 
         if(InConvo) 
         {
-            DialogBoards[CurrentNumberOfDialog].gameObject.SetActive(true);
+            /*DialogBoards[CurrentNumberOfDialog].gameObject.SetActive(true);
             PlayerController.CanMove = false;
+            Canvas.SetActive(true);*/
+
             Canvas.SetActive(true);
+            PlayerController.CanMove = false;
+            TextMeshPro.text = DialogLines[CurrentNumberOfDialog];
         }
 
         if (!InConvo) 
@@ -72,10 +80,10 @@ public class Diolog_Test : MonoBehaviour
             InteractPt.SetActive(true);
             InConvo = false;
 
-           foreach( GameObject dialog in DialogBoards) 
+           /*foreach( GameObject dialog in DialogBoards) 
             {
                 dialog.SetActive(false);
-            }
+            }*/
 
         }
     }
@@ -88,7 +96,7 @@ public class Diolog_Test : MonoBehaviour
         {
             if (context.performed)
             {
-                Debug.Log("Convo");
+                Debug.Log("Convo Progress");
                 CurrentNumberOfDialog++;
             }
         }
